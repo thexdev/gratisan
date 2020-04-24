@@ -1,4 +1,5 @@
 import React, { memo, useCallback, useState } from 'react';
+import SelectLanguage from './SelectLanguage';
 import { Box, Heading, Flex, Text, Button } from '@chakra-ui/core';
 
 const MenuItems = ({ children }) => (
@@ -20,9 +21,10 @@ const Header = () => {
       padding="1rem"
       bg="white"
       color="gray.500"
+      borderBottom="1px solid #E2E8F0"
     >
       <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg">
+        <Heading as="h1" size="lg" color="purple.500">
           Gratisan
         </Heading>
       </Flex>
@@ -54,6 +56,7 @@ const Header = () => {
         display={{ sm: show ? 'block' : 'none', md: 'block' }}
         mt={{ base: 4, md: 0 }}
       >
+        <SelectLanguage />
         <Button bg="transparent" border="1px" size="sm">
           <Text mr="0.8em" className="fab fa-github" as="span" /> Kontribusi
         </Button>
