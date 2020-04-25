@@ -1,12 +1,10 @@
 import React, { memo, useCallback, useState } from 'react';
-import SelectLanguage from './SelectLanguage';
-import { Box, Heading, Flex, Text, Button } from '@chakra-ui/core';
+import Brand from './Brand';
+import Menu from './Menu';
+import Option from './Option';
+import { Box, Flex } from '@chakra-ui/core';
 
-const MenuItems = ({ children }) => (
-  <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
-    {children}
-  </Text>
-);
+const hamburgerBarDisplay = { sm: 'block', md: 'none' };
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -23,44 +21,23 @@ const Header = () => {
       color="gray.500"
       borderBottom="1px solid #E2E8F0"
     >
-      <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg" color="purple.500">
-          Gratisan
-        </Heading>
-      </Flex>
-
-      <Box display={{ sm: 'block', md: 'none' }} onClick={handleToggle}>
-        <svg
-          fill="#2D3748"
-          width="12px"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
-      </Box>
+      <Brand />
 
       <Box
-        display={{ sm: show ? 'block' : 'none', md: 'flex' }}
-        width={{ sm: 'full', md: 'auto' }}
-        alignItems="center"
-        flexGrow={1}
+        display={hamburgerBarDisplay}
+        onClick={handleToggle}
+        fontSize="1.5em"
       >
-        <MenuItems>Docs</MenuItems>
-        <MenuItems>Examples</MenuItems>
-        <MenuItems>Blog</MenuItems>
+        {show ? (
+          <span className="ri-menu-2-line"></span>
+        ) : (
+          <span className="ri-menu-3-line"></span>
+        )}
       </Box>
 
-      <Box
-        display={{ sm: show ? 'block' : 'none', md: 'block' }}
-        mt={{ base: 4, md: 0 }}
-      >
-        <SelectLanguage />
-        <Button bg="transparent" border="1px" size="sm">
-          <Text mr="0.8em" className="fab fa-github" as="span" /> Kontribusi
-        </Button>
-      </Box>
+      <Menu isShow={show} />
+
+      <Option isShow={show} />
     </Flex>
   );
 };
