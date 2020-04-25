@@ -1,16 +1,9 @@
 import React, { memo } from 'react';
+import CTAButton from './CTAButton';
 import Illustration from 'assets/img/undraw_co-working_825n.svg';
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Heading,
-  Image,
-  SimpleGrid,
-  Text,
-} from '@chakra-ui/core';
+import { Box, Heading, Image, SimpleGrid, Text } from '@chakra-ui/core';
 
-const gridColumns = {
+const columns = {
   sm: 1,
   md: 2,
 };
@@ -26,14 +19,10 @@ const subheading1Display = {
   sm: 'none',
   md: 'block',
 };
-const buttonGroupTextAlign = {
-  sm: 'center',
-  md: 'left',
-};
 
 const Hero = () => {
   return (
-    <SimpleGrid columns={gridColumns} mt="6em">
+    <SimpleGrid columns={columns} mt="6em">
       <Box px="1em">
         <Heading
           size="2xl"
@@ -59,19 +48,7 @@ const Hero = () => {
         >
           Membangun sesuatu yang bermanfaat dan membagikannya kepada orang lain~
         </Heading>
-        <ButtonGroup
-          spacing={5}
-          mt="2em"
-          width="100%"
-          textAlign={buttonGroupTextAlign}
-        >
-          <Button variantColor="purple" size="lg" color="gray.100">
-            Get started
-          </Button>
-          <Button variantColor="gray" size="lg" color="gray.700">
-            Github
-          </Button>
-        </ButtonGroup>
+        <CTAButton />
       </Box>
       <Box px="1em" display={imgBoxDisplay}>
         <Image src={Illustration} alt="Creative People" size="75%" />
