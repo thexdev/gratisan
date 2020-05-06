@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
 import Section from 'components/section';
-import { Box, Button, SimpleGrid, Text } from '@chakra-ui/core';
+import { Box, Button, Image, SimpleGrid, Text } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
+import lighthouse from 'assets/img/undraw_Lighthouse_frb8.svg';
 
 const columns = {
   sm: 1,
@@ -12,7 +13,9 @@ const About = () => {
   return (
     <Section heading="GRATISAN">
       <SimpleGrid columns={columns} spacing={10}>
-        <Box></Box>
+        <Box>
+          <Image src={lighthouse} size="65%" />
+        </Box>
         <Box>
           <Text fontSize="xl">
             Jika kamu adalah seorang developer atau programmer,{' '}
@@ -44,7 +47,7 @@ const About = () => {
           <Link to="/tentang">
             <Button
               mt="1.3em"
-              bg="purple.500"
+              bg="red.500"
               color="gray.100"
               _hover={{
                 bg: 'gray.100',
