@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import About from './sections/About';
 import Hero from 'components/hero';
 import Overview from './sections/Overview';
-import Service from './sections/Service';
 
 const Home = () => {
   return (
@@ -10,7 +9,6 @@ const Home = () => {
       <Hero />
       <About />
       <Overview />
-      <Service />
     </>
   );
 };
